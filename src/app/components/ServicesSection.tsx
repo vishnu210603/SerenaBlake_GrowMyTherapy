@@ -58,7 +58,7 @@ export const ServicesSection = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
+                ref={el => (cardRefs.current[index] = el)}
                 onMouseMove={(e) => handleMouseMove(e, index)}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
