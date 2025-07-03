@@ -9,34 +9,12 @@ import { ReviewsSection } from './components/ReviewsSection'
 import { FAQSection } from './components/FAQSection'
 import { Footer } from './components/Footer'
 import { ContactSection } from './components/ContactSection'
-import { useState } from 'react'
-const page = () => {
-  const [showContact, setShowContact] = useState(false);
 
+const page = () => {
   return (
     <div>
       <Navigation/>
-     <HeroSection
-  onBookClick={() => {
-    setShowContact((prev) => {
-      const newState = !prev;
-
-      if (!newState) return newState; // If hiding, no need to scroll
-
-      // Scroll only when opening
-      setTimeout(() => {
-        const form = document.getElementById("contact");
-        form?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-
-      return newState;
-    });
-  }}
-/>
-
-{showContact && <ContactSection />}
-
-
+      <HeroSection/>
       <AboutSection/>
       <ServicesSection/>
       <MentalHealthQuiz/>
