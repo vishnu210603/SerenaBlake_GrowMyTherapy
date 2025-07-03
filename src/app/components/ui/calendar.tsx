@@ -1,6 +1,8 @@
+"use client";
+
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 
 import { cn } from "@/app/lib/utils";
 import { buttonVariants } from "@/app/components/ui/button";
@@ -51,16 +53,11 @@ function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-  IconPrevious: () => <ChevronLeft className="h-4 w-4" />,
-  IconNext: () => <ChevronRight className="h-4 w-4" />,
-}}
-
-
       {...props}
     />
   );
 }
+
 Calendar.displayName = "Calendar";
 
 export { Calendar };
