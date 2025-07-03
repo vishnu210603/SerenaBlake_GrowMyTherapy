@@ -16,16 +16,27 @@ const page = () => {
   return (
     <div>
       <Navigation/>
-      <HeroSection
-        onBookClick={() => {
-          setShowContact(true);
-          setTimeout(() => {
-            const form = document.getElementById("contact");
-            form?.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }}
-      />
-      {showContact && <ContactSection />}
+     <HeroSection
+  onBookClick={() => {
+    setShowContact((prev) => {
+      const newState = !prev;
+
+      if (!newState) return newState; // If hiding, no need to scroll
+
+      // Scroll only when opening
+      setTimeout(() => {
+        const form = document.getElementById("contact");
+        form?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+
+      return newState;
+    });
+  }}
+/>
+
+{showContact && <ContactSection />}
+
+
       <AboutSection/>
       <ServicesSection/>
       <MentalHealthQuiz/>
