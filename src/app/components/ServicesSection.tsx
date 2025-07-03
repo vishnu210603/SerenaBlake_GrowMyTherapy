@@ -21,7 +21,6 @@ export const ServicesSection = () => {
       image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?auto=format&fit=crop&w=400&h=300&q=80"
     }
   ];
-  
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -58,7 +57,9 @@ export const ServicesSection = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                ref={el => (cardRefs.current[index] = el)}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 onMouseMove={(e) => handleMouseMove(e, index)}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
